@@ -87,10 +87,10 @@ WSGI_APPLICATION = 'auth_system.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mycollect',
-        'USER': 'postgres',
-        'PASSWORD': 'Namhepho12',
+        'USER': 'Nam',
+        'PASSWORD': 'Namhepho#12',
         'HOST': 'localhost'
 
     }
