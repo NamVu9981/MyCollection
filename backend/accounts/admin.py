@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import RankingImage
 
-# Register your models here.
+class ImageAdmin(admin.ModelAdmin):
+    readonly_fields = ('id',)
+
+admin.site.register(RankingImage, ImageAdmin)

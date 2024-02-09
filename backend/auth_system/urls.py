@@ -17,9 +17,17 @@ Including another URLconf
 from django.views.generic import TemplateView
 from django.urls import path, include, re_path
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib import admin
+from accounts import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('images/<int:image_id>', views.images),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
-    re_path(r'^.*$', csrf_exempt(TemplateView.as_view(template_name='index.html'))),
+    # re_path(r'^.*$', csrf_exempt(TemplateView.as_view(template_name='index.html'))),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
